@@ -54,9 +54,15 @@ def test_req1_nenhum_com_frete_gratis(pedido_pequeno):
     outro = Pedido("Dani", [Item("Suco", 8.0, 1)])
     assert contar_frete_gratis([pedido_pequeno, outro]) == 0
     
+def test_req1_lista_mista(pedido_pequeno, pedido_grande):
+    assert contar_frete_gratis([pedido_pequeno, pedido_grande]) == 1
+    
 # Requisito 2 — situacao(unidades_indisponiveis) -> str
 # Escreva os testes ANTES de implementar o método
 
+def test_req2_sem_indisponiveis_e_abaixo_de_50_esta_confirmado(pedido_pequeno):
+    # subtotal 15,00, nada indisponível
+    assert pedido_pequeno.situacao(0) == "Confirmado"
 
 
 
