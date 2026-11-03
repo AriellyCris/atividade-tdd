@@ -30,3 +30,6 @@ class Pedido:
 
     def total_com_desconto(self, percentual: float) -> float:
         return self.subtotal() - self.subtotal() * percentual / 100
+    
+    def contar_frete_gratis(pedidos: list) -> int:
+        return 0
