@@ -68,6 +68,9 @@ def test_req2_sem_indisponiveis_e_a_partir_de_50_tem_frete_gratis(pedido_grande)
     # subtotal 73,00, nada indisponível
     assert pedido_grande.situacao(0) == "Confirmado com frete grátis"
 
+def test_req2_mais_de_25_por_cento_indisponivel_cancela_mesmo_com_frete_gratis(pedido_grande):
+    # 5 unidades no total, 2 indisponíveis = 40%
+    assert pedido_grande.situacao(2) == "Cancelado por falta de estoque"
 
 
 
