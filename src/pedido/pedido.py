@@ -17,7 +17,7 @@ class Pedido:
         return sum(item.quantidade for item in self.itens)
 
     def subtotal(self) -> float:
-        return sum(item.preco for item in self.itens)
+        return sum(item.preco * item.quantidade for item in self.itens)
 
     def tem_frete_gratis(self) -> bool:
         return self.subtotal() > VALOR_FRETE_GRATIS
