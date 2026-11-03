@@ -23,6 +23,10 @@ def test_exemplo_quantidade_total(pedido_pequeno):
 def test_bug1_subtotal_considera_a_quantidade(pedido_pequeno):
     # 6,00 + 2 x 4,50 = 15,00 (o código original ignora a quantidade e devolve 10,50)
     assert pedido_pequeno.subtotal() == 15.0
+    
+def test_bug2_frete_gratis_com_subtotal_exatamente_50():
+    pedido = Pedido("Carla", [Item("Combo", 50.0, 1)])
+    assert pedido.tem_frete_gratis() is True    
 
 
 # =============================================================
