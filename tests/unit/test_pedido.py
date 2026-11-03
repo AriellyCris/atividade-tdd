@@ -31,6 +31,9 @@ def test_bug2_frete_gratis_com_subtotal_exatamente_50():
 def test_bug3_item_mais_barato_retorna_o_menor_preco(pedido_pequeno):
     assert pedido_pequeno.item_mais_barato().nome == "Pão de queijo"    
 
+def test_bug4_desconto_diminui_o_subtotal():
+    pedido = Pedido("Carla", [Item("Combo", 100.0, 1)])
+    assert pedido.total_com_desconto(10) == 90.0
 
 # =============================================================
 # PARTE 2 — Implemente com TDD
