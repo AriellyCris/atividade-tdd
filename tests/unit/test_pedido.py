@@ -43,11 +43,17 @@ def test_bug4_desconto_diminui_o_subtotal():
 # Requisito 1 — contar_frete_gratis(pedidos) -> int
 # Escreva os testes ANTES de implementar a função
 
+def test_req1_lista_vazia_retorna_zero():
+    assert contar_frete_gratis([]) == 0
+
 def test_req1_todos_com_frete_gratis(pedido_grande):
     outro = Pedido("Carla", [Item("Combo", 50.0, 1)])
     assert contar_frete_gratis([pedido_grande, outro]) == 2
 
-
+def test_req1_nenhum_com_frete_gratis(pedido_pequeno):
+    outro = Pedido("Dani", [Item("Suco", 8.0, 1)])
+    assert contar_frete_gratis([pedido_pequeno, outro]) == 0
+    
 # Requisito 2 — situacao(unidades_indisponiveis) -> str
 # Escreva os testes ANTES de implementar o método
 
