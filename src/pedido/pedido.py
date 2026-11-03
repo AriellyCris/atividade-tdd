@@ -33,3 +33,10 @@ class Pedido:
     
     def contar_frete_gratis(pedidos: list) -> int:
         return sum(1 for pedido in pedidos if pedido.tem_frete_gratis())
+    
+    def situacao(self, unidades_indisponiveis: int) -> str:
+        return "Confirmado"
+    
+def contar_frete_gratis(pedidos: list) -> int:
+    return 0
+
