@@ -20,7 +20,7 @@ class Pedido:
         return sum(item.preco * item.quantidade for item in self.itens)
 
     def tem_frete_gratis(self) -> bool:
-        return self.subtotal() > VALOR_FRETE_GRATIS
+        return self.subtotal() >= VALOR_FRETE_GRATIS
 
     def item_mais_caro(self) -> Item:
         return max(self.itens, key=lambda item: item.preco)
