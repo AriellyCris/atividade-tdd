@@ -63,6 +63,10 @@ def test_req1_lista_mista(pedido_pequeno, pedido_grande):
 def test_req2_sem_indisponiveis_e_abaixo_de_50_esta_confirmado(pedido_pequeno):
     # subtotal 15,00, nada indisponível
     assert pedido_pequeno.situacao(0) == "Confirmado"
+    
+def test_req2_sem_indisponiveis_e_a_partir_de_50_tem_frete_gratis(pedido_grande):
+    # subtotal 73,00, nada indisponível
+    assert pedido_grande.situacao(0) == "Confirmado com frete grátis"
 
 
 
