@@ -27,6 +27,9 @@ def test_bug1_subtotal_considera_a_quantidade(pedido_pequeno):
 def test_bug2_frete_gratis_com_subtotal_exatamente_50():
     pedido = Pedido("Carla", [Item("Combo", 50.0, 1)])
     assert pedido.tem_frete_gratis() is True    
+    
+def test_bug3_item_mais_barato_retorna_o_menor_preco(pedido_pequeno):
+    assert pedido_pequeno.item_mais_barato().nome == "Pão de queijo"    
 
 
 # =============================================================
