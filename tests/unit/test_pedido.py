@@ -1,3 +1,5 @@
+from gettext import install
+
 import pytest
 from unittest.mock import MagicMock
 from pedido.pedido import Item, Pedido
@@ -18,6 +20,9 @@ def test_exemplo_quantidade_total(pedido_pequeno):
 # no código original. Não altere src/pedido/pedido.py ainda.
 # =============================================================
 
+def test_bug1_subtotal_considera_a_quantidade(pedido_pequeno):
+    # 6,00 + 2 x 4,50 = 15,00 (o código original ignora a quantidade e devolve 10,50)
+    assert pedido_pequeno.subtotal() == 15.0
 
 
 # =============================================================
@@ -32,6 +37,8 @@ def test_exemplo_quantidade_total(pedido_pequeno):
 
 # Requisito 2 — situacao(unidades_indisponiveis) -> str
 # Escreva os testes ANTES de implementar o método
+
+
 
 
 
